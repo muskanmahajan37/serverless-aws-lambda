@@ -9,7 +9,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": f"This is our secret key value" }
+    return {"message": f"Hello world!!!" }
 
 
 app.include_router(api_router)
