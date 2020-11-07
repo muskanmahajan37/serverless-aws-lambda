@@ -6,7 +6,7 @@ from app.core.config import settings
 
 app = FastAPI()
 
-
+# Update
 @app.get("/")
 async def root():
     return {"message": f"Secret key: {settings.db_user}" }
