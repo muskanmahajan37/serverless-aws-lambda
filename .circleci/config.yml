@@ -22,6 +22,14 @@ jobs:
       - run:
           name: Test
           command: Pytest
+      -run:
+        name: Create zipfile archived
+        command: |
+        cd env/lib/python3.7/site-packages
+        zip -r9 ../../../../function.zip
+      -run:
+        name: Add app to zipfile
+        command: zip -g ./function.zip -r app
 workflows:
   build-test-and-deploy:
     jobs:
