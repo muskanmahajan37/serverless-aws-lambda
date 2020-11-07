@@ -1,0 +1,31 @@
+version: 2.1
+
+
+orb:
+  python: circle/python@1.0.0
+
+jobs:
+  build-and-test:
+    executor:
+      name: python/default
+      tag: '3.8'
+    steps:
+      - checkout
+      - run:
+          name: Setup virtual env
+          command: |
+            virtualenv -p python3.8 env
+            echo "source ./env/bin/activate" >>$BASH_ENV
+      -run:
+        name: Install dependencies
+        command: pip install -r requirements.txt
+
+workflows:
+  build-test-and-deploy:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only:
+                - cicd-demo-dev
+
