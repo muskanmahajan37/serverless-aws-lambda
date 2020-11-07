@@ -60,11 +60,11 @@ workflows:
             branches:
               only:
                 - cicd-demo-dev
-  - deploy-dev:
-          context: cicd-demo-dev
-          requires:
-            - build-and-test
-          filters:
-            branches:
-              only:
-                - cicd-demo-dev
+      - deploy-dev:
+              context: cicd-demo-dev
+              requires:
+                - build-and-test
+              filters:
+                branches:
+                  only:
+                    - cicd-demo-dev
