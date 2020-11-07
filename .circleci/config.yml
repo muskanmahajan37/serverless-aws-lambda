@@ -21,15 +21,12 @@ jobs:
           command: pip install -r requirements.txt
       - run:
           name: Test
-          command: Pytest
+          command: pytest
       - run:
-        name: Create zipfile archived
-        command: |
-        cd env/lib/python3.7/site-packages
-        zip -r9 ../../../../function.zip
-      - run:
-        name: Add app to zipfile
-        command: zip -g ./function.zip -r app
+          name: Create Zipfile archive of Dependencies
+          command: |
+            cd env/lib/python3.7/site-packages
+            zip -r9 ../../../../function.zip .
 workflows:
   build-test-and-deploy:
     jobs:
