@@ -6,10 +6,11 @@ from app.core.config import settings
 
 app = FastAPI()
 
-# Update
+
 @app.get("/")
 async def root():
     return {"message": f"Secret key: {settings.db_user}" }
+
 
 
 app.include_router(api_router, prefix=settings.prefix)
